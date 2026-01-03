@@ -1212,3 +1212,25 @@ body::after {
         gap: 10px;
     }
 }
+
+@media (max-width: 768px) {
+    body::before {
+        animation-duration: 30s;
+    }
+
+    body::after {
+        animation-duration: 35s;
+    }
+}
+
+@media (max-width: 480px) {
+    body::before {
+        opacity: 0.2;
+        animation-duration: 40s;
+    }
+
+    body::after {
+        opacity: 0.15;
+        animation-duration: 45s;
+    }
+}
