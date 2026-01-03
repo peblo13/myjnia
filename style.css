@@ -1236,16 +1236,23 @@ body::after {
 
 @media (max-width: 480px) {
     body::before {
-        opacity: 0.2;
-        animation-duration: 40s;
+        animation: none;
+        opacity: 0.5;
     }
 
     body::after {
-        opacity: 0.15;
-        animation-duration: 45s;
+        animation: none;
+        opacity: 0.3;
     }
 
     body {
-        background: #0a0a0a; /* Fallback solid color for mobile */
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f3460 100%);
+        background-attachment: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
     }
 }
