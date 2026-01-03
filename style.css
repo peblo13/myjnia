@@ -1133,6 +1133,17 @@ body::after {
 }
 
 @media (max-width: 375px) {
+    body::before {
+        opacity: 0.3;
+    }
+
+    body::after {
+        opacity: 0.2;
+    }
+
+    body {
+        background: #0a0a0a;
+    }
     .hero {
         padding: 80px 15px 40px;
     }
@@ -1232,5 +1243,9 @@ body::after {
     body::after {
         opacity: 0.15;
         animation-duration: 45s;
+    }
+
+    body {
+        background: #0a0a0a; /* Fallback solid color for mobile */
     }
 }
