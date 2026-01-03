@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasyno Online - Graj i Wygrywaj!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🎰 Kasyno VIP</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="#home">Start</a>
+                <a href="#games">Gry</a>
+                <a href="#jackpot">Jackpot</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+            <div class="nav-balance">
+                <span>Saldo: <strong>1000</strong> zł</span>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Witaj w <span class="highlight">Kasynie VIP</span></h1>
+                <p class="hero-subtitle">Najlepsze gry hazardowe online. Wygrywaj prawdziwe pieniądze!</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>500+</h3>
+                        <p>Aktywnych graczy</p>
+                    </div>
+                    <div class="stat">
+                        <h3>1M+</h3>
+                        <p>Wygranych zł</p>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <p>Dostępność</p>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#games" class="btn-primary">Zacznij grać</a>
+                    <a href="#jackpot" class="btn-secondary">Sprawdź jackpot</a>
+                </div>
+            </div>
+            <div class="slot-machines-switcher" style="margin-bottom: 20px; text-align:center;">
+                <button class="machine-btn" data-machine="fruits">🍒 Owoce</button>
+                <button class="machine-btn" data-machine="diamonds">💎 Diamenty</button>
+                <button class="machine-btn" data-machine="cyber">🤖 Cyberpunk</button>
+            </div>
+            <div class="hero-slots">
+                <div class="slot-machine" id="slot-fruits">
+                    <div class="slot-display">
+                        <div class="reel" id="reel1">🍒</div>
+                        <div class="reel" id="reel2">🍋</div>
+                        <div class="reel" id="reel3">🍊</div>
+                    </div>
+                    <button class="spin-btn" onclick="spinSlots('fruits')">SPIN</button>
+                </div>
+                <div class="slot-machine" id="slot-diamonds" style="display:none;">
+                    <div class="slot-display">
+                        <div class="reel" id="dreel1">💎</div>
+                        <div class="reel" id="dreel2">🔷</div>
+                        <div class="reel" id="dreel3">🔶</div>
+                    </div>
+                    <button class="spin-btn" onclick="spinSlots('diamonds')">SPIN</button>
+                </div>
+                <div class="slot-machine" id="slot-cyber" style="display:none;">
+                    <div class="slot-display">
+                        <div class="reel" id="creel1">🤖</div>
+                        <div class="reel" id="creel2">🦾</div>
+                        <div class="reel" id="creel3">🔋</div>
+                    </div>
+                    <button class="spin-btn" onclick="spinSlots('cyber')">SPIN</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="games">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nasze Gry</h2>
+                <p>Wybierz swoją ulubioną grę</p>
+            </div>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-icon">🎰</div>
+                    <h3>Automaty</h3>
+                    <p>Klasyczne jednorękie bandyty z nowoczesną grafiką</p>
+                    <button class="btn-play">Graj teraz</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">🃏</div>
+                    <h3>Blackjack</h3>
+                    <p>Strategiczna gra karciana przeciwko krupierowi</p>
+                    <button class="btn-play">Graj teraz</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">🎡</div>
+                    <h3>Ruletka</h3>
+                    <p>Klasyczna ruletka europejska i amerykańska</p>
+                    <button class="btn-play" onclick="showRoulette()">Graj teraz</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">🎲</div>
+                    <h3>Kości</h3>
+                    <p>Rzuć kośćmi i sprawdź swoje szczęście</p>
+                    <button class="btn-play">Graj teraz</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">🃏</div>
+                    <h3>Poker</h3>
+                    <p>Texas Hold'em i inne odmiany pokera</p>
+                    <button class="btn-play">Graj teraz</button>
+                </div>
+                <div class="game-card">
+                    <div class="game-icon">🎯</div>
+                    <h3>Bingo</h3>
+                    <p>Klasyczna gra bingo z dużymi wygranymi</p>
+                    <button class="btn-play">Graj teraz</button>
+                </div>
+            </div>
+            <!-- Ruletka Modal/Game Section -->
+            <div id="roulette-section" style="display:none; margin-top:40px; text-align:center;">
+                <h2>Ruletka</h2>
+                <div id="roulette-wheel" style="margin: 0 auto; width: 320px; height: 320px; position: relative;">
+                    <!-- Koło ruletki SVG -->
+                    <svg width="320" height="320" viewBox="0 0 320 320">
+                        <g id="wheel-segments"></g>
+                        <circle cx="160" cy="160" r="150" fill="none" stroke="#fff" stroke-width="4" />
+                        <circle cx="160" cy="160" r="20" fill="#222" stroke="#fff" stroke-width="2" />
+                    </svg>
+                    <div id="roulette-pointer" style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-bottom:32px solid #ffeb3b;"></div>
+                </div>
+                <div style="margin:20px 0;">
+                    <button class="spin-btn" onclick="spinRoulette()">Zakręć kołem</button>
+                </div>
+                <div id="roulette-result" style="font-size:1.5rem; color:#fff; min-height:40px;"></div>
+                <button class="btn-secondary" onclick="hideRoulette()">Zamknij</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="jackpot" class="jackpot">
+        <div class="container">
+            <div class="jackpot-container">
+                <h2>🎉 JACKPOT 🎉</h2>
+                <div class="jackpot-amount" id="jackpotAmount">2,547,891 zł</div>
+                <p>Następny jackpot może być Twój!</p>
+                <button class="btn-jackpot">Dołącz do gry</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kontakt</h2>
+                <p>Skontaktuj się z nami</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>support@kasyno-vip.pl</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h4>Chat Live</h4>
+                            <p>24/7 dostępny</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required placeholder="Imię i nazwisko">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required placeholder="Temat">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" required placeholder="Wiadomość"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🎰 Kasyno VIP</h3>
+                    <p>Najlepsze kasyno online w Polsce</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Szybkie linki</h4>
+                    <ul>
+                        <li><a href="#home">Start</a></li>
+                        <li><a href="#games">Gry</a></li>
+                        <li><a href="#jackpot">Jackpot</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Regulamin</h4>
+                    <ul>
+                        <li><a href="#">Zasady gry</a></li>
+                        <li><a href="#">Polityka prywatności</a></li>
+                        <li><a href="#">Odpowiedzialna gra</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kasyno VIP. Wszystkie prawa zastrzeżone. | 18+</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+        <script src="roulette.js"></script>
+        <script>
+        // Obsługa przycisku 'Graj teraz' przy ruletce
+        document.addEventListener('DOMContentLoaded', function() {
+            var roulettePlayBtn = document.querySelector('.game-card .game-icon + h3 + p + .btn-play[onclick]');
+            // Poprawne przypisanie do właściwego przycisku ruletki
+            var allCards = document.querySelectorAll('.game-card');
+            allCards.forEach(function(card) {
+                var h3 = card.querySelector('h3');
+                if (h3 && h3.textContent.trim().toLowerCase() === 'ruletka') {
+                    var btn = card.querySelector('.btn-play');
+                    if (btn) {
+                        btn.onclick = function() {
+                            showRoulette();
+                            document.getElementById('roulette-section').scrollIntoView({behavior:'smooth'});
+                        };
+                    }
+                }
+            });
+        });
+        </script>
+</body>
+</html>
